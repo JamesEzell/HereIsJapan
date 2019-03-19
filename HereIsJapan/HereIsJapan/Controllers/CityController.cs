@@ -11,9 +11,6 @@ namespace HereIsJapan.Controllers
 {
     public class CityController : Controller
     {
-
-
-
         ICityRepository repo;
 
         public CityController(ICityRepository r)
@@ -55,16 +52,33 @@ namespace HereIsJapan.Controllers
             return View();
         }
 
-        [Authorize(Roles = "User")]
+
         [HttpPost]
-        public RedirectToActionResult AddTravelStory(string title, string dateVisited, string description)
+        public RedirectToActionResult StoriesForm(TravelStory travelStory)
         {
-            TravelStory travelStory = new TravelStory { Title = title };
-            travelStory.DateVisited = DateTime.Parse(dateVisited);
-            travelStory.Description = description;
-            repo.AddTravelStory(travelStory);
-           
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                repo.AddTravelStory(travelStory);
+                return RedirectToAction("Index", travelStory);
+            }
+            else
+            {
+                return RedirectToAction("StoriesForm");
+            }
+        }
+
+        [HttpPost]
+        public RedirectToActionResult AddComment(TravelStory travelStory, Comment comment)
+        {
+            if (ModelState.IsValid)
+            {
+                repo.AddComment(travelStory, comment);
+                return RedirectToAction("Index", comment);
+            }
+            else
+            {
+                return RedirectToAction("Add Comment");
+            }
         }
 
 

@@ -51,6 +51,17 @@ namespace HereIsJapan
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAuthentication();
+
+            /*these mitigate some of the alerts found by ZAP. No high priority alerts were found*/
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Frame-Options", "DENY");
+                context.Response.Headers.Add("X-Xss-Protection", "1");
+                context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+                await next();
+            });
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
