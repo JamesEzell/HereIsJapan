@@ -1,0 +1,18 @@
+﻿@{ 
+    Layout = null;
+}
+
+
+
+<h2>The city of Tokyo is located on which of these main islands?</h2>
+1. @ViewData["Answer1"]<br />
+2. @ViewData["Answer2"]<br />
+3. @ViewData["Answer3"]<br />
+<form action="GeoQuizAnswer">
+    <input hidden="hidden" name="answer1" value="@ViewData["Answer1"]" />
+    <input hidden="hidden" name="answer2" value="@ViewData["Answer2"]" />
+    <input hidden="hidden" name="answer3" value="@ViewData["Answer3"]" />
+    <label for="rightanswer">Answer</label><br />
+    <input type="text" name="rightanswer" /><br />
+    <input type="submit" />
+</form>

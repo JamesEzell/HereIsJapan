@@ -1,0 +1,51 @@
+﻿@model List<TravelStory>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Cities and Stories</title>
+</head>
+<body>
+    <h1>Submitted Cities</h1>
+    @foreach (TravelStory t in Model)
+    {
+        <h2> @t.Title </h2>
+        @t.City<br />
+        @t.DateVisited <br />
+        @t.Description <br />
+        <br />
+        @if(t.Comments.Count > 0)
+        {
+            <h3>Story Reactions</h3>
+            @foreach(Comment c in t.Comments)
+            {
+
+                <br />@c.CommentText<br />
+            }
+            <br />
+        }
+        
+        <a href="/City/AddComment">Add your own comment!</a>
+    }
+
+    <br />
+
+    <form method="post">
+        Search by Date<br />
+        Enter Date:
+        <input name="dateVisited" />
+        <input type="submit" />
+    </form>
+
+    <nav>
+        <br />
+        <a href="/Home">Home</a>
+        <a href="/City/AddTravelStory">Add your own story</a>
+    </nav>
+</body>
+</html>
