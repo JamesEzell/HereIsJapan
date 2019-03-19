@@ -13,7 +13,7 @@ namespace HereIsJapan.Models
 
         public IQueryable<TravelStory> TravelStories => context.TravelStories.Include("Comments");
 
-        public List<City> Cities => context.Cities.ToList();
+        public List<City> Cities => context.Cities.ToList();  
 
 
         public CityRepository(AppDbContext appDbContext)
