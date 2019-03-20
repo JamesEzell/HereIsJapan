@@ -1,14 +1,18 @@
 ﻿@model List<TravelStory>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "List of Submitted Stories";
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <title>Cities and Stories</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListOfSubmitted Stories</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
     <h1>Submitted Cities</h1>
@@ -22,7 +26,7 @@
         @if(t.Comments.Count > 0)
         {
             <h3>Story Reactions</h3>
-            @foreach(Comment c in t.Comments)
+            @foreach(Comment c in t.Comments)     
             {
 
                 <br />@c.CommentText<br />
