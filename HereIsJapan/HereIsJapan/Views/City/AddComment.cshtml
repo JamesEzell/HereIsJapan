@@ -1,11 +1,15 @@
 ﻿@model String
 @{
-    Layout = null;
+    ViewData["Title"] = "AddComment";
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add your comment</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddComment</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
     <h1>Review for <em>@Model</em></h1>

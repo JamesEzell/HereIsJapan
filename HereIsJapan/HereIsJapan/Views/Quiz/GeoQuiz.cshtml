@@ -1,13 +1,20 @@
-﻿@{ 
-    Layout = null;
+﻿@{
+    ViewData["Title"] = "GeoQuiz";
+    Layout = "_Layout";
 }
 
-
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GeoQuiz</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
 
 <h2>The city of Tokyo is located on which of these main islands?</h2>
 1. @ViewData["Answer1"]<br />
 2. @ViewData["Answer2"]<br />
 3. @ViewData["Answer3"]<br />
+<br />
 <form action="GeoQuizAnswer">
     <input hidden="hidden" name="answer1" value="@ViewData["Answer1"]" />
     <input hidden="hidden" name="answer2" value="@ViewData["Answer2"]" />
@@ -16,3 +23,5 @@
     <input type="text" name="rightanswer" /><br />
     <input type="submit" />
 </form>
+<br />
+<a class="btn btn-primary" href="/Home/Index" type="submit">Back to home</a>

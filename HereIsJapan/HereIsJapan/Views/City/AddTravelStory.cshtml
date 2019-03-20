@@ -1,7 +1,7 @@
 ﻿@model TravelStory
 @{
     ViewData["Title"] = "AddTravelStory";
-    Layout = null;
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
                 <div asp-validation-summary="All"></div>
                 <div class="form-group">
                     <label asp-for="CityID">Select City</label>
-                    <select asp-for="CityID" class="form-control" asp-items="@ViewBag.CityID"></select>
+                    <select asp-for="CityID" class="form-control" asp-items=@ViewBag.CityID></select>
                 </div>
                 <br />
                 <div class="form-group">
